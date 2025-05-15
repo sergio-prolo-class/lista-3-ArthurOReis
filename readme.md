@@ -18,8 +18,7 @@ composição, dependência).
 - No repositório fornecido há um projeto Gradle padrão. Todas as soluções devem ser implementadas
 nesse projeto, organizadas em pacotes distintos.
 
-- Utilize o Git de forma adequada: commits frequentes, README.md informativo e .gitignore funcio-
-nal.
+- Utilize o Git de forma adequada: commits frequentes, README.md informativo e .gitignore funcional.
 
 - A avaliação considerará critérios de legibilidade, clareza e organização do código. Valor total: [10
 pontos]
