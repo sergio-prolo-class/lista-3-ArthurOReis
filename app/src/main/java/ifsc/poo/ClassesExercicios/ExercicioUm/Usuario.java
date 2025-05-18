@@ -1,4 +1,4 @@
-package ifsc.poo.Classes.ExercicioUm;
+package ifsc.poo.ClassesExercicios.ExercicioUm;
 
 public class Usuario {
     private String login;

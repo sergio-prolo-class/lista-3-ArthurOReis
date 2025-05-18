@@ -4,6 +4,10 @@
 package ifsc.poo;
 import java.util.Scanner;
 
+import ifsc.poo.ClassesExercicios.ExercicioDois.MainDois;
+import ifsc.poo.ClassesExercicios.ExercicioTres.MainTres;
+import ifsc.poo.ClassesExercicios.ExercicioUm.MainUm;
+
 public class App {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
@@ -13,7 +17,7 @@ public class App {
             System.out.println("3 - Exercicio Tres");
             System.out.print("> ");
             int opcao = input.nextInt();
-            
+
             switch (opcao) {
                 case 1 -> exercicioUm();
                 case 2 -> exercicioDois();
@@ -24,14 +28,14 @@ public class App {
     }
 
     public static void exercicioUm() {
-        System.out.println("Exercício 1");
+        MainUm.main(new String[]{});
     }
 
     public static void exercicioDois() {
-        System.out.println("Exercício 2");
+        MainDois.main(new String[]{});
     }
 
     public static void exercicioTres() {
-        System.out.println("Exercício 3");
+        MainTres.main(new String[]{});
     }
 }
