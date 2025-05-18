@@ -13,6 +13,7 @@ public class App {
             System.out.println("3 - Exercicio Tres");
             System.out.print("> ");
             int opcao = input.nextInt();
+            
             switch (opcao) {
                 case 1 -> exercicioUm();
                 case 2 -> exercicioDois();
