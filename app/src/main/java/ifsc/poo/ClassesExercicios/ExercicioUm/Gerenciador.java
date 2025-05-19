@@ -30,8 +30,14 @@ public class Gerenciador {
         return false;
     }
 
-    public static List<Usuario> listarLogins(){
-        return usuarios;
+    public static String[] listarLogins(){
+        String[] logins = new String[usuarios.size()];
+
+        for (int i = 0; i < usuarios.size(); i++) {
+            logins[i] = usuarios.get(i).getLogin();
+        }
+        
+        return logins;
     }
 
     public static boolean autenticar(String login, String senha){
