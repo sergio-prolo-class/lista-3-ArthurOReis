@@ -9,8 +9,8 @@ public class MainUm {
 
         String[] Listalogins = Gerenciador.listarLogins();
 
-        for (int i = 0; i < Listalogins.length; i++) {
-            System.out.println(Listalogins[i]);
+        for (String login : Listalogins) {
+            System.out.println(login);
         }
 
         System.out.println();
@@ -36,8 +36,8 @@ public class MainUm {
         System.out.println();
         System.out.println("Lista atual de usuários: ");
 
-        for (int i = 0; i < Listalogins.length; i++) {
-            System.out.println(Listalogins[i]);
+        for (String login : Listalogins) {
+            System.out.println(login);
         }
 
         System.out.println();

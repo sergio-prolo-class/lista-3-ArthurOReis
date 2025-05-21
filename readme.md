@@ -69,3 +69,8 @@ classDiagram
         +setSenha(senha) void
         +getSenha() String
     }
+```
+
+## Pacote 2 - Fila de Atendimento
+
+Descrição: A Fila de Atendimento é composto por três classes principais: `Atendimento`, `Cliente` e `Fila`.
