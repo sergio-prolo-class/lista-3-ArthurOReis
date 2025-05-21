@@ -73,7 +73,7 @@ classDiagram
 
 ## Pacote 2 - Fila de Atendimento
 
-Descrição: A Fila de Atendimento é composto por três classes principais: `Atendimento`, `Fila`, `Solicitação` e `Cliente`.
+Descrição: A Fila de Atendimento é composto por quatro classes principais: `Atendimento`, `Fila`, `Solicitação` e `Cliente`.
 
 - O sistema é inicializado pelo `App`, que cria uma única instância de `Atendimento`. O atendimento pode gerenciar várias instâncias de `Fila`, cada fila é composta por múltiplas instâncias de `Solicitação`, e cada solicitação está associada a um `Cliente`.
 - Sem `Atendimento`, não é possível criar `Fila`, e sem fila, não é possível criar `Solicitação`. Instâncias do tipo `Cliente` podem existir no sistema, mas apenas participam da fila de atendimento quando possuem pelo menos uma solicitação registrada.
@@ -109,12 +109,80 @@ classDiagram
         -categoria String
         -status String
         -cliente Cliente
-        +Solicitacao(descricao: String, categoria: String, cliente: Cliente)
+        +Solicitacao(descricao: String, categoria: String, cliente: Cliente) Solicitacao
     }
     class Cliente{
         -nome String
         -telefone String
-        +Cliente(nome: String, telefone: String)
+        +Cliente(nome: String, telefone: String) Clienet
         +criaSolicitacao(descricao: String, categoria: String): Solicitacao
+    }
+```
+
+## Pacote 3 - Biblioteca de Livros
+
+Descrição: A Biblioteca de Livros é composto por cinco classes principais: `Biblioteca`, `Livro`, `Autor`, `Leitor` e `Emprestimo`.
+
+- O sistema é inicializado pelo `App`, que cria uma única instância de `Biblioteca`. A biblioteca pode gerenciar várias instâncias de `Livro` e `Leitor`. Cada livro é composto por um ou mais autores, e cada autor pode estar associado a um ou mais livros.
+- Sem a `Biblioteca`, não é possível criar livros ou leitores, pois ambos dependem dela para existir. Autores só podem ser cadastrados se estiverem associados a pelo menos um livro.
+- Todos os livros e leitores registrados estão associados a uma única `Biblioteca`, enquanto esta pode ser associada de zero a n livros e leitores.
+- O sistema mantém um registro de todos os empréstimos realizados, sendo que cada empréstimo está obrigatoriamente associado a um único livro e a um único leitor.
+- Por fim, um leitor pode ter de zero a n empréstimos, enquanto cada empréstimo precisa estar associado a um único livro e a um único leitor.
+
+```mermaid
+classDiagram
+    App "1" --> "1" Biblioteca
+    Biblioteca "1" *-- "0..*" Livro
+    Biblioteca "1" *-- "0..*" Leitor
+    Livro "1" -- "1..*" Autor
+    Leitor "1" -- "0..*" Emprestimo
+    Emprestimo "1" --> "1" Livro
+
+    App : -a Biblioteca
+    App : +MainTres()
+    class Biblioteca{
+        -livros List<Livro>
+        -leitores List<Leitor>
+        -emprestimos List<Emprestimo>
+        +cadastrarAutor(nome: String, idiomaNativo: String)
+        +cadastrarLivro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
+        +cadastrarLeitor(nome: String, endereco: String, telefone: String)
+        +registrarEmprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: Date) boolean
+        +listarAutoresOrdenados(): List<Autor>
+        +listarLeitoresOrdenadosPorNome(): List<Leitor>
+        +listarLeitoresOrdenadosPorId(): List<Leitor>
+        +listarLivrosPorTitulo(): List<Livro>
+        +listarLivrosPorAutor(): List<Livro>
+        +listarLivrosPorISBN(): List<Livro>
+        +listarEmprestimosPorData(): List<Emprestimo>
+        +listarEmprestimosDeLeitor(leitor: Leitor): List<Emprestimo>
+    }
+    class Livro{
+        -titulo String
+        -isbn String
+        -autores List<Autor>
+        -quantidadeExemplares int
+        +Livro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
+        +temCopiaDisponivel(): boolean
+    }
+    class Autor{
+        -nome String
+        -idiomaNativo String
+        +Autor(nome: String, idiomaNativo: String)
+    }
+    class Leitor{
+        -id int
+        -nome String
+        -endereco String
+        -telefone String
+        +Leitor(nome: String, endereco: String, telefone: String)
+        +jaEmprestouLivro(livro: Livro): boolean
+        +quantidadeEmprestimosAtivos(): int
+    }
+    class Emprestimo{
+        -dataEmprestimo Date
+        -leitor Leitor
+        -livro Livro
+        +Emprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: Date)
     }
 ```
