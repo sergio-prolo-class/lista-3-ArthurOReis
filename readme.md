@@ -37,3 +37,35 @@ README.md do repositório.
 
 - Pelo menos uma classe de cada pacote deve conter um método main executável que demonstre os
 requisitos funcionais.
+
+## Pacote 1 - Sistema de Login
+
+Descrição: O Sistema de Login é composto por duas classes principais: `Gerenciador` e `Usuário`.
+
+- Cada instância de `Usuário` está associada a exatamente um `Gerenciador`.
+- O `Gerenciador` pode estar associado a zero ou mais instâncias de `Usuário`.
+- O sistema é inicializado pelo `App`, que cria um único `Gerenciador` e permite o cadastro de múltiplos `Usuários` vinculados a ele.
+
+```mermaid
+classDiagram
+    App "1" --> "1" Gerenciador
+    Gerenciador "1" *-- "0..*" Usuario
+
+    App : -g Gerenciador
+    App : +MainUm()
+    class Gerenciador{
+      -usuarios List<Usuario>
+      +cadastrarUsuario(login, senha) boolean
+      +removerUsuario(login) boolean
+      +listarLogins() String[]
+      +autenticar(login, senha) boolean
+    }
+    class Usuario{
+        -login String
+        -senha String
+        +Usuario(login, senha)
+        +setLogin(login) void
+        +getLogin() String
+        +setSenha(senha) void
+        +getSenha() String
+    }
