@@ -25,8 +25,8 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Solicitacao criaSolicitacao(String descricao, String categoria){
-        Solicitacao solicitacao = new Solicitacao(descricao, categoria, "", this);
+    public Solicitacao criaSolicitacao(String descricao, String categoria, String status){
+        Solicitacao solicitacao = new Solicitacao(descricao, categoria, status, this);
         return solicitacao;
     }
 }
