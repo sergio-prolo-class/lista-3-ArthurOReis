@@ -1,10 +1,15 @@
 package ifsc.poo.ClassesExercicios.ExercicioDois;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
 
 public class Fila {
-    private final List<Solicitacao> solicitacoes = new ArrayList<>();
+    private final Queue<Solicitacao> solicitacoes = new ArrayDeque<>();
+
+    public Fila(Solicitacao... novas_solicitacoes) {
+        solicitacoes.addAll(Arrays.asList(novas_solicitacoes));
+    }
 
     public boolean adicionarSolicitacao(Solicitacao solicitacao) {
         for (Solicitacao solicitacao_elemento : solicitacoes) {
@@ -18,15 +23,10 @@ public class Fila {
     }
 
     public Solicitacao atendeSolicitacao(){
-        if (solicitacoes.isEmpty() || solicitacoes.size() == 1) {
-            return null;
-        }
-
-        solicitacoes.removeFirst();
-        return solicitacoes.getFirst();
+        return solicitacoes.poll();
     }
 
-    public List<Solicitacao> listarSolicitacoes(){
+    public Queue<Solicitacao> listarSolicitacoes(){
         return this.solicitacoes;
     }
 }
