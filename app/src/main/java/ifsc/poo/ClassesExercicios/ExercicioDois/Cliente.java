@@ -24,4 +24,9 @@ public class Cliente {
     public void setTelefone(String telefone){
         this.telefone = telefone;
     }
+
+    public Solicitacao criaSolicitacao(String descricao, String categoria){
+        Solicitacao solicitacao = new Solicitacao(descricao, categoria, "", this);
+        return solicitacao;
+    }
 }
