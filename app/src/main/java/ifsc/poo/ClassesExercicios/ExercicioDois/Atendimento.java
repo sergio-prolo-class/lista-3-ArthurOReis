@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Atendimento {
-    private final List<Fila> filas = new ArrayList<>();
+    private static final List<Fila> filas = new ArrayList<>();
     
     public Atendimento(Fila... novas_filas) {
         filas.addAll(Arrays.asList(novas_filas));
@@ -23,7 +23,7 @@ public class Atendimento {
     }
 
     public List<Fila> listarFilas(){
-        return this.filas;
+        return Atendimento.filas;
     }
 
     public boolean removeFila(Fila fila){
