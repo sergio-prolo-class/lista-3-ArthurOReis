@@ -1,4 +1,4 @@
-package ifsc.poo.ClassesExercicios.ExercicioDois;
+package ifsc.poo.ClassesExercicios.ExercicioTres;
 
 public class Livro {
     
