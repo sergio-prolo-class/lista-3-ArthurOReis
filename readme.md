@@ -93,10 +93,8 @@ classDiagram
     class Atendimento{
       -filas List<Fila>
       +criaFila(fila: Fila) boolean
-      +adicionaSolicitacao(solicitacao: Solicitacao) boolean
       +listarFilas() List<Fila>
-      +removerFila(fila: Fila) boolean
-      +adicionaSolicitacao(fila: Fila, solicitacao: Solicitacao): boolean
+      +removeFila(fila: Fila) boolean
     }
     class Fila{
         -solicitacoes List<Solicitacao>
@@ -114,8 +112,8 @@ classDiagram
     class Cliente{
         -nome String
         -telefone String
-        +Cliente(nome: String, telefone: String) Clienet
-        +criaSolicitacao(descricao: String, categoria: String): Solicitacao
+        +Cliente(nome: String, telefone: String) Cliente
+        +criaSolicitacao(descricao: String, categoria: String) Solicitacao
     }
 ```
 
