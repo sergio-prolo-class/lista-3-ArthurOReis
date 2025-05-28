@@ -1,11 +1,12 @@
 package ifsc.poo.ClassesExercicios.ExercicioTres;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Livro {
     private String titulo;
     private String isbn;
-    private List<Autor> autores;
+    private List<Autor> autores = new ArrayList<>();
     private int quantidadeExemplares;
 
     public Livro(String titulo, String isbn, List<Autor> autores, int quantidadeExemplares) {
