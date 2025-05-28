@@ -1,5 +1,5 @@
 package ifsc.poo.ClassesExercicios.ExercicioTres;
 
-public class Sistema {
+public class Autor {
     
 }
