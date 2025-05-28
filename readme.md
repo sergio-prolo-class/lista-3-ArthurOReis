@@ -146,7 +146,7 @@ classDiagram
         +cadastrarAutor(nome: String, idiomaNativo: String)
         +cadastrarLivro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
         +cadastrarLeitor(nome: String, endereco: String, telefone: String)
-        +registrarEmprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: Date) boolean
+        +registrarEmprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: String) boolean
         +listarAutoresOrdenados() List<Autor>
         +listarLeitoresOrdenadosPorNome() List<Leitor>
         +listarLeitoresOrdenadosPorId() List<Leitor>
@@ -179,9 +179,9 @@ classDiagram
         +quantidadeEmprestimosAtivos() int
     }
     class Emprestimo{
-        -dataEmprestimo Date
+        -dataEmprestimo String
         -leitor Leitor
         -livro Livro
-        +Emprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: Date)
+        +Emprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: String)
     }
 ```
