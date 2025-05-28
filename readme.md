@@ -141,6 +141,7 @@ classDiagram
     class Biblioteca{
         -livros List<Livro>
         -leitores List<Leitor>
+        -autores List<Autor>
         -emprestimos List<Emprestimo>
         +cadastrarAutor(nome: String, idiomaNativo: String)
         +cadastrarLivro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
