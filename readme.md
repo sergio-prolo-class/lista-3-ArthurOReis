@@ -174,6 +174,7 @@ classDiagram
         -nome String
         -endereco String
         -telefone String
+        -emprestimosRealizados List<Emprestimo>
         +Leitor(nome: String, endereco: String, telefone: String)
         +jaEmprestouLivro(livro: Livro) boolean
         +quantidadeEmprestimosAtivos() int
