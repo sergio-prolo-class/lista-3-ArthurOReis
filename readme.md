@@ -146,14 +146,14 @@ classDiagram
         +cadastrarLivro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
         +cadastrarLeitor(nome: String, endereco: String, telefone: String)
         +registrarEmprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: Date) boolean
-        +listarAutoresOrdenados(): List<Autor>
-        +listarLeitoresOrdenadosPorNome(): List<Leitor>
-        +listarLeitoresOrdenadosPorId(): List<Leitor>
-        +listarLivrosPorTitulo(): List<Livro>
-        +listarLivrosPorAutor(): List<Livro>
-        +listarLivrosPorISBN(): List<Livro>
-        +listarEmprestimosPorData(): List<Emprestimo>
-        +listarEmprestimosDeLeitor(leitor: Leitor): List<Emprestimo>
+        +listarAutoresOrdenados() List<Autor>
+        +listarLeitoresOrdenadosPorNome() List<Leitor>
+        +listarLeitoresOrdenadosPorId() List<Leitor>
+        +listarLivrosPorTitulo() List<Livro>
+        +listarLivrosPorAutor() List<Livro>
+        +listarLivrosPorISBN() List<Livro>
+        +listarEmprestimosPorData() List<Emprestimo>
+        +listarEmprestimosDeLeitor(leitor: Leitor) List<Emprestimo>
     }
     class Livro{
         -titulo String
@@ -161,7 +161,7 @@ classDiagram
         -autores List<Autor>
         -quantidadeExemplares int
         +Livro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
-        +temCopiaDisponivel(): boolean
+        +temCopiaDisponivel() boolean
     }
     class Autor{
         -nome String
@@ -174,8 +174,8 @@ classDiagram
         -endereco String
         -telefone String
         +Leitor(nome: String, endereco: String, telefone: String)
-        +jaEmprestouLivro(livro: Livro): boolean
-        +quantidadeEmprestimosAtivos(): int
+        +jaEmprestouLivro(livro: Livro) boolean
+        +quantidadeEmprestimosAtivos() int
     }
     class Emprestimo{
         -dataEmprestimo Date
