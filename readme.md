@@ -147,6 +147,7 @@ classDiagram
         +cadastrarLivro(titulo: String, isbn: String, autores: List<Autor>, quantidadeExemplares: int)
         +cadastrarLeitor(nome: String, endereco: String, telefone: String)
         +registrarEmprestimo(leitor: Leitor, livro: Livro, dataEmprestimo: String) boolean
+        +buscarLivroPorTitulo(titulo: String) Livro
         +listarAutoresOrdenados() List<Autor>
         +listarLeitoresOrdenadosPorNome() List<Leitor>
         +listarLeitoresOrdenadosPorId() List<Leitor>

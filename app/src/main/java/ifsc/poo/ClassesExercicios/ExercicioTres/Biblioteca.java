@@ -10,6 +10,16 @@ public class Biblioteca {
     private final static List<Autor> autores = new ArrayList<>();
     private final static List<Emprestimo> emprestimos = new ArrayList<>();
 
+    public Livro buscarLivroPorTitulo(String titulo) {
+        for (Livro livro : livros) {
+            if (livro.getTitulo().equals(titulo)) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
+
     public void cadastrarAutor(String nome, String idiomaNativo) {
         Autor autor = new Autor(nome, idiomaNativo);
         autores.add(autor);
@@ -74,7 +84,7 @@ public class Biblioteca {
         return lista;
     }
 
-    public List<Emprestimo> listarEmprestimosPorData() {
+    public List<Emprestimo> listarEmprestimosPorData() { // arrumar função quando trocar data String -> DateTime
         List<Emprestimo> lista = new ArrayList<>(emprestimos);
         lista.sort(Comparator.comparing(Emprestimo::getDataEmprestimo));
         return lista;
