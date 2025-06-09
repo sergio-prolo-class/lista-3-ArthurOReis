@@ -6,7 +6,24 @@ import java.util.List;
 public class MainTres {
     public static Biblioteca biblioteca = new Biblioteca();
 
+    public static void testeIgualdadeLivros() {
+        biblioteca.cadastrarAutor("Odilson", "Português");
+        List<Autor> autores = biblioteca.listarAutoresOrdenados();
+        Autor odilson = autores.getFirst();
+        List<Autor> autoresLivro1 = new ArrayList<>();
+        autoresLivro1.add(odilson);
+        biblioteca.cadastrarLivro("Teste1", "111", autoresLivro1, 1);
+        biblioteca.cadastrarLivro("Teste1", "111", autoresLivro1, 1);
+        List<Livro> livros = biblioteca.listarLivrosPorTitulo();
+        System.out.println("testeIgualdadeLivros");
+        System.out.println(livros.get(0).equals(livros.get(1))); // ERRO: false.
+    }
+
     public static void main(String[] args) {
+        // Testes
+        testeIgualdadeLivros();
+        System.exit(0);
+
         // cadastrando autores
         biblioteca.cadastrarAutor("Odilson", "Português");
         biblioteca.cadastrarAutor("Sérgio", "Inglês");
